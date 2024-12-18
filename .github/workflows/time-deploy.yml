@@ -5,6 +5,7 @@ on:
       - main
     paths:
       - 'time/**'  
+      - '.github/workflows/time-deploy.yml'
 
 permissions:
   contents: write
