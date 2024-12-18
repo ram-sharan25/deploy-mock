@@ -1,8 +1,10 @@
-name: Deploy Documentation
+name: Deploy Time Project
 on:
   push:
     branches:
       - main
+    paths:
+      - 'time/**'  
 
 permissions:
   contents: write
@@ -12,9 +14,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
-          commit_message: "Deploy documentation from ${{ github.ref }}"
+          publish_dir: ./time
+          destination_dir: time 
+          commit_message: "Deploy time project from ${{ github.sha }}"
