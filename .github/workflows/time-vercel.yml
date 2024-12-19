@@ -18,15 +18,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-
       - name: Deploy to Vercel
         env:
-          VERCEL_TOKEN: "T8zbkqGD0eexQHTChu78QC9r"
+          VERCEL_TOKEN: ${{secrets.VERCEL_TOKEN}}
           VERCEL_ORG_ID: ${{ secrets.ORG_ID }} 
           VERCEL_PROJECT_ID: ${{ secrets.PROJECT_ID }} 
         run: |
