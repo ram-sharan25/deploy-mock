@@ -26,10 +26,8 @@ jobs:
 
       - name: Deploy to Vercel
         env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_SECRET}}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_SECRET }}
         run: |
           cd time-vercel
-          echo VERCEL_TOKEN=${secrets.VERCEL_SECRET}
+          echo "VERCEL_TOKEN=${VERCEL_TOKEN}"
           npx vercel --prod --yes
-
-          
