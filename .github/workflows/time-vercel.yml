@@ -5,7 +5,7 @@ on:
       - main
     paths:
       - 'time/**'  
-      - '.github/workflows/time-deploy.yml'
+      - '.github/workflows/time-vercel.yml'
 
 permissions:
   contents: write
@@ -14,9 +14,6 @@ permissions:
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -26,12 +23,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          
+
       - name: Deploy to Vercel
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
           cd time-vercel
-          npx vercel --prod
+          npx vercel --prod --yes
 
           
