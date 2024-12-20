@@ -36,4 +36,4 @@ jobs:
           cd time-vercel
           vercel whoami --token ${VERCEL_TOKEN}
           echo "VERCEL_TOKEN=${VERCEL_TOKEN}"
-          npx vercel --prod --yes
+          vercel --token ${VERCEL_TOKEN} --prod --yes
