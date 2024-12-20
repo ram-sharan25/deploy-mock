@@ -1,7 +1,7 @@
 name: Deploy Time Project
 env:
-  VERCEL_ORG_ID: ${{ secrets.ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.PROJECT_ID }}
+  VERCEL_ORG_ID: ${{ vars.ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ vars.PROJECT_ID }}
   VERCEL_TOKEN: ${{vars.VERCEL_TOKEN}}
 on:
   push:
