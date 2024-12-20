@@ -1,7 +1,7 @@
 name: Deploy Time Project
 env:
   VERCEL_ORG_ID: ${{ vars.ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ vars.PROJECT_ID2 }}
+  VERCEL_PROJECT_ID: ${{ vars.PROJECT_ID2}}
   VERCEL_TOKEN: ${{vars.VERCEL_TOKEN}}
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - main
     paths:
       - 'time/**'  
-      - '.github/workflows/time-vercel.yml'
+      - '.github/workflows/time-vercel2.yml'
 
 permissions:
   contents: write
