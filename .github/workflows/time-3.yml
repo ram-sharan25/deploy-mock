@@ -1,0 +1,22 @@
+name: Deploy Project 3
+on:
+  push:
+    branches:    
+      - main
+    paths:
+     - 'time-3/**'
+     - '.github/workflows/time-3.yml'
+     - '.github/workflows/set-environment.yml'
+     - '.github/workflows/deploy-base.yml'
+  workflow_dispatch:
+jobs:
+  setup:
+   uses: ./.github/workflows/set-environment.yml
+   with:
+     node-version: 16
+  deploy:
+    needs: setup
+    uses: ./.github/workflows/deploy-base.yml
+    with:
+     project-path: time-3
+     project-id: ${{vars.PROJECT_ID3}}

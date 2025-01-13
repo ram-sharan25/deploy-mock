@@ -1,0 +1,22 @@
+name: Deploy Project 2
+on:
+  push:
+    branches:    
+      - main
+    paths:
+     - 'time-2/**'
+     - '.github/workflows/time-2.yml'
+     - '.github/workflows/set-environment.yml'
+     - '.github/workflows/deploy-base.yml'
+  workflow_dispatch:
+jobs:
+  setup:
+   uses: ./.github/workflows/set-environment.yml
+   with:
+     node-version: 16
+  deploy:
+    needs: setup
+    uses: ./.github/workflows/deploy-base.yml
+    with:
+     project-path: time-2
+     project-id: ${{vars.PROJECT_ID2}}
