@@ -1,0 +1,29 @@
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'time/**'
+      - '.github/_workflows/**'
+  workflow_dispatch:
+
+jobs:
+  setup:
+    uses: ./.github/_workflows/base/set-environment.yml
+    with:
+      node-version: 16
+
+  deploy-project1:
+    needs: setup
+    uses: ./.github/_workflows/base/deploy-base.yml
+    with:
+      project-path: time-vercel
+      project-id: ${{vars.PROJECT_ID}}
+      
+  deploy-project2:
+    needs: setup
+    uses: ./.github/_workflows/base/deploy-base.yml
+    with:
+      project-path: time-vercel2
+      project-id: ${{vars.PROJECT_ID2}}
+    

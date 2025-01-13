@@ -1,0 +1,23 @@
+name: "Reusable Vercel Deploy"
+on:
+  workflow_call:
+    inputs:
+      project-path:
+        required: true
+        type: string
+      project-id:
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Vercel
+        env:
+          VERCEL_TOKEN: ${{ vars.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ vars.ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ inputs.project-id }}
+        run: |
+          cd ${{ inputs.project-path }}
+          vercel deploy --token ${VERCEL_TOKEN} --prod --yes
