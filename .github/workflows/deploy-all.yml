@@ -25,6 +25,13 @@ jobs:
     needs: setup
     uses: ./.github/workflows/deploy-base.yml
     with:
-      project-path: time-vercel2
+      project-path: time-2
       project-id: ${{vars.PROJECT_ID2}}
+
+  deploy-project3:
+    needs: setup
+    uses: ./.github/workflows/deploy-base.yml
+    with:
+      project-path: time-3
+      project-id: ${{vars.PROJECT_ID3}}
     
