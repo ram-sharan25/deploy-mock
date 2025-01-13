@@ -10,20 +10,20 @@ on:
 
 jobs:
   setup:
-    uses: .github/workflows/set-environment.yml
+    uses: ./.github/workflows/set-environment.yml@main
     with:
       node-version: 16
 
   deploy-project1:
     needs: setup
-    uses: .github/workflows/deploy-base.yml
+    uses: ./.github/workflows/deploy-base.yml@main
     with:
       project-path: time-vercel
       project-id: ${{vars.PROJECT_ID}}
       
   deploy-project2:
     needs: setup
-    uses: .github/workflows/deploy-base.yml
+    uses: ./.github/workflows/deploy-base.yml@main
     with:
       project-path: time-vercel2
       project-id: ${{vars.PROJECT_ID2}}
