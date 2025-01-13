@@ -1,5 +1,5 @@
 name: Deploy Project 3
-run-name: "Project 1: ${{ github.event.head_commit.message }}"
+run-name: "Project 3: ${{ github.event.head_commit.message }}"
 on:
   push:
     branches:    
