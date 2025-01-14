@@ -1,0 +1,13 @@
+.vercel
+time-1/.env
+time-2/.env
+time-3/.env
+time-1/.env.local
+time-2/.env.local
+time-3/.env.local
+time-1/.gitignore
+time-2/.gitignore
+time-3/.gitignore
+.env
+.env.local
+.DS_Store
